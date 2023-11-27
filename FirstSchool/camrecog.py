@@ -1,19 +1,12 @@
 import easyocr
 import cv2
-import edge_tts
-import asyncio
-from playsound import playsound
+import pyttsx3
+engine = pyttsx3.init()
 reader = easyocr.Reader(['ch_sim','en'], gpu = True) # need to run only once to load model into memory
-waitimg = cv2.imread('./wait.png') 
 
 class resultype:
      value=0
      repeat=0
-
-async def speak(text,voice,output):
-    communicate = edge_tts.Communicate(text,voice)
-    await communicate.save(output)
-    playsound(output)
 
 def count(num,numset):
     time=0
@@ -46,7 +39,7 @@ def findmax(numset):
             maxpos=i
     return maxpos,numset[maxpos].value
 
-def analyzevideo(videoinpath):
+def analyzevideo():
     # videoinpath = 'video.mp4'
     # videooutpath = 'video_out.mp4'
     #capture = cv2.VideoCapture(videoinpath)
@@ -100,11 +93,12 @@ def analyzevideo(videoinpath):
                     # print("已经出现",count(result.value,resultset))
                     print("最可信结果：位于第",maxpos,"个的",max[0])
                     time=1
-                    asyncio.run(speak(max[0],"en-US-AriaNeural","./temp.mp3"))
+                    engine.say(max[0])
+                    engine.runAndWait()
                     resultset=[]
                     total=[] 
     else:
         print('视频打开失败！')
 
 #main
-analyzevideo("./testV.mp4")
+analyzevideo()
