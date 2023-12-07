@@ -1,5 +1,6 @@
 import easyocr
 import cv2
+import time as t
 import pyttsx3
 engine = pyttsx3.init()
 reader = easyocr.Reader(['ch_sim','en'], gpu = True) # need to run only once to load model into memory
@@ -40,15 +41,14 @@ def findmax(numset):
     return maxpos,numset[maxpos].value
 
 def analyzevideo():
-    # videoinpath = 'video.mp4'
-    # videooutpath = 'video_out.mp4'
-    #capture = cv2.VideoCapture(videoinpath)
     capture = cv2.VideoCapture(0)  
     fourcc = cv2.VideoWriter_fourcc(*'mp4v')
     if capture.isOpened():
         time=1
         resultset=[]
         total=[]
+        engine.say("识别开始")
+        engine.runAndWait()
         while time:
             ret,img_src=capture.read()
             if not ret:break
@@ -84,17 +84,11 @@ def analyzevideo():
                     total=[]
                 else:
                     print("PLEASE WAIT")
-                    # print(time)
-                    # for i in range(len(total)):
-                    #         print("第",i)
-                    #         print("value",total[i].value)
-                    #         print("repeat",total[i].repeat)
-                    # print(exist(result.value,total))
-                    # print("已经出现",count(result.value,resultset))
                     print("最可信结果：位于第",maxpos,"个的",max[0])
                     time=1
                     engine.say(max[0])
                     engine.runAndWait()
+                    t.sleep(3)
                     resultset=[]
                     total=[] 
     else:
