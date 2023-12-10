@@ -1,0 +1,54 @@
+<!-- 校内赛----------将数字刷新在屏幕中央的程序 -->
+
+
+<!DOCTYPE html html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <title>html随机数生成器（js函数）</title>
+  <style>
+    #div_text {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 300px;
+    }
+  </style>
+</head>
+
+<body onload="myFunction()">
+  <script type="text/javascript">
+
+    function myFunction() {
+      var number = randomNum(1, 999)
+
+      document.getElementById("div_text").innerText = number;
+      //document.writ("随机数",number);
+    };
+  </script>
+
+  <script>//randomnum函数的实现，要放在script架构中
+    function randomNum(maxNum, minNum, decimalNum) {
+      var max = 0, min = 0;
+      minNum <= maxNum ? (min = minNum, max = maxNum) : (min = maxNum, max = minNum);
+      switch (arguments.length) {
+        case 1:
+          return Math.floor(Math.random() * (max + 1));
+          break;
+        case 2:
+          return Math.floor(Math.random() * (max - min + 1) + min);
+          break;
+        case 3:
+          return (Math.random() * (max - min) + min).toFixed(decimalNum);
+          break;
+        default:
+          return Math.random();
+          break;
+      }
+    }
+  </script>
+  <div id="div_text"></div>
+</body>
+<html>

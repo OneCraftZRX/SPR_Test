@@ -1,0 +1,18 @@
+[Unit]
+Description=webcontrollerService
+After=network.target
+
+[Service]
+Type=simple
+RemainAfterExit=yes
+WorkingDirectory=/home/orangepi/web_controller_release_1_0
+ExecStart=/usr/bin/python3 /home/orangepi/web_controller_release_1_0/main.py
+ExecStop=/bin/kill -9 'lsof -t -i:5000'
+TimeoutStartSec=0
+Restart=always
+RestartSec=1
+User = orangepi
+
+
+[Install]
+WantedBy=multi-user.target

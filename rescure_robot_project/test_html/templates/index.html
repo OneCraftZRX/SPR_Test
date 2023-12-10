@@ -1,0 +1,83 @@
+<!-- <html> 
+  <head> 
+    <title> Pi Video Surveillance </title> 
+  </head> 
+  <body> 
+    <h1> Pi Video Surveillance </h1> 
+    <img  src = "{{ url_for('video_feed') }}" > 
+  </body> 
+</html>  -->
+
+
+<!-- <body>
+  <div class="container">
+  <div class="row">
+  <div class="col-lg-8  offset-lg-2">
+  <h3 class="mt-5">Detect results</h3>
+  <img src="{{ url_for('video_feed') }}" width="55%">
+  </div>
+  </div>
+  </div>
+  </body> -->
+
+
+
+
+
+  <!-- <!DOCTYPE html>
+  <html>
+    <head>
+      <title>Live Streaming</title>
+      <style>
+        h3 {
+          font-size: 2em;
+        }
+      </style>
+    </head>
+    <body>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 offset-lg-2">
+            <h3 class="mt-5">Live Streaming</h3>
+            <img src="{{ url_for('video_feed') }}" width="70%">
+          </div>
+        </div>
+      </div>
+    </body>
+  </html> -->
+
+
+  <!DOCTYPE html>
+  <html>
+    <head>
+      <title>Live Streaming</title>
+      <style>
+        .col-lg-8 {
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-start;
+          align-items: flex-start;
+        }
+        h3 {
+          font-size: 2em;
+          margin-right: 20px;
+          margin-top: 0;
+        }
+        img {
+          border: 6px solid rgb(255, 0, 0);
+          margin-top: 5px;
+          margin-left: 300px;
+        }
+      </style>
+    </head>
+    <body>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 offset-lg-2">
+            <h3 class="mt-5">Detect results ：</h3>
+            <img src="{{ url_for('video_feed') }}" width="53%">
+          </div>
+        </div>
+      </div>
+    </body>
+  </html>

@@ -49,6 +49,7 @@ def analyzevideo():
         total=[]
         engine.say("识别开始")
         engine.runAndWait()
+        t.sleep(1)
         while time:
             ret,img_src=capture.read()
             if not ret:break
@@ -76,7 +77,7 @@ def analyzevideo():
             #可能的处理
             cv2.imshow('Processing',img_src)
             time=time+1
-            if(time==50):
+            if(time==5):
                 if(len(total)==0):
                     print("本次识别无结果")
                     time=1
@@ -88,9 +89,9 @@ def analyzevideo():
                     time=1
                     engine.say(max[0])
                     engine.runAndWait()
-                    t.sleep(3)
+                    t.sleep(2)
                     resultset=[]
-                    total=[] 
+                    total=[]
     else:
         print('视频打开失败！')
 
