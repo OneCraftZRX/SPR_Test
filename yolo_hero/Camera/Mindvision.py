@@ -31,7 +31,7 @@ class Mindvision:
 
         #加载相机参数文件,加载成功返回0
         parameter=1
-        parameter=Camera.mvsdk.CameraReadParameterFromFile(self.hCamera,"E:\\yolo_autoaim\\Camera\\camera_windows_night.Config")
+        parameter=Camera.mvsdk.CameraReadParameterFromFile(self.hCamera,"C:\\Users\\25176\\OneDrive\\Codes\\SPR2024\\TestGit\\yolo_hero\\Camera\\camera_windows_night.Config")
 
         #print("xiangjicanshu ",parameter)
         # 相机模式切换成连续采集

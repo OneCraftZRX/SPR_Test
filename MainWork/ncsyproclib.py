@@ -4,22 +4,6 @@ import numpy as np
 #debug注意图像通道的转换！
 
 class ncsyprocs(object):
-    def makevideo_():
-        videoinpath = 'video.mp4'
-        videooutpath = 'video_out.mp4'
-        capture = cv2.VideoCapture(videoinpath)
-        fourcc = cv2.VideoWriter_fourcc(*'X265')
-        writer = cv2.VideoWriter(videooutpath ,fourcc, 24.0, (640,512), True)
-        if capture.isOpened():
-            while True:
-                ret,img_src=capture.read()
-                if not ret:break
-                img_out = op(img_src)
-                writer.write(img_out)
-        else:
-            print('视频打开失败！')
-        writer.release()
-        #现在没用
 
     def thresholdplus(src,show):
         gray = cv2.cvtColor(src, cv2.COLOR_BGR2GRAY)

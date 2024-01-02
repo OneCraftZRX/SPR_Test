@@ -70,9 +70,9 @@ def show_each2_merge_max(img2proc,cnts):
         print("draw",i,"and",i+1)
     cv2.imshow('findmergemax', img2proc)
  
-img = cv2.imread('C:\\Users\\25176\\OneDrive\\Codes\\SPR2024\\TestGit\\MainProject\\robo3.png') 
-img_ori=cv2.imread('C:\\Users\\25176\\OneDrive\\Codes\\SPR2024\\TestGit\\MainProject\\robo.png') 
-img_bin=cv2.imread('C:\\Users\\25176\\OneDrive\\Codes\\SPR2024\\TestGit\\MainProject\\robo.png') 
+img = cv2.imread(r'C:\Users\25176\OneDrive\Codes\SPR2024\TestGit\MainWork\robo3.png') 
+img_ori=cv2.imread(r'C:\Users\25176\OneDrive\Codes\SPR2024\TestGit\MainWork\robo.png') 
+img_bin=cv2.imread(r'C:\Users\25176\OneDrive\Codes\SPR2024\TestGit\MainWork\robo.png') 
 cv2.imshow("binary", img_bin)
 img_findrect1=img.copy()
 img_findrect2=img.copy()
@@ -80,21 +80,21 @@ img_findmerge1=img.copy()
 img_findmerge2=img.copy()
 
 img_1=threshold(img_ori)
-src = cv2.imread("C:\\Users\\25176\\OneDrive\\Codes\\SPR2024\\TestGit\\MainProject\\robo2.png")
+src = cv2.imread(r"C:\Users\25176\OneDrive\Codes\SPR2024\TestGit\MainWork\robo2.png")
 open(src)
 close(src)
 
 
 
-    # 转变成单通道
+# 转变成单通道
 gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-    # 二值化,第一个返回值是执行的结果和状态是否成功，第二个返回值才是真正的图片结果
+# 二值化,第一个返回值是执行的结果和状态是否成功，第二个返回值才是真正的图片结果
 ret, binary = cv2.threshold(gray, 130, 255, cv2.THRESH_BINARY)
-    # 轮廓查找,第一个返回值是轮廓，第二个是层级
+# 轮廓查找,第一个返回值是轮廓，第二个是层级
 contours, hierarchy = cv2.findContours(binary, cv2.RETR_TREE, cv2.CHAIN_APPROX_NONE)
 contours_sorted,boxes=sort_contours(contours,'left-to-right')
 
-    # 绘制轮廓
+# 绘制轮廓
 cv2.drawContours(img, contours_sorted, -1, (0, 255, 0), 1)  # 改变的是img这张图
 cv2.imshow('findedge', img)
 cv2.imshow('selected_bin(opened)', binary)

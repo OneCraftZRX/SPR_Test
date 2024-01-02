@@ -4,22 +4,22 @@ import numpy as np
 #debug注意图像通道的转换！
 
 class ncsyprocs(object):
-    def makevideo():
-        videoinpath = 'video.mp4'
-        videooutpath = 'video_out.mp4'
-        capture = cv2.VideoCapture(videoinpath)
-        fourcc = cv2.VideoWriter_fourcc(*'X265')
-        writer = cv2.VideoWriter(videooutpath ,fourcc, 24.0, (640,512), True)
-        if capture.isOpened():
-            while True:
-                ret,img_src=capture.read()
-                if not ret:break
-                img_out = op(img_src)
-                writer.write(img_out)
-        else:
-            print('视频打开失败！')
-        writer.release()
-        #现在没用
+    # def makevideo():
+    #     videoinpath = 'video.mp4'
+    #     videooutpath = 'video_out.mp4'
+    #     capture = cv2.VideoCapture(videoinpath)
+    #     fourcc = cv2.VideoWriter_fourcc(*'X265')
+    #     writer = cv2.VideoWriter(videooutpath ,fourcc, 24.0, (640,512), True)
+    #     if capture.isOpened():
+    #         while True:
+    #             ret,img_src=capture.read()
+    #             if not ret:break
+    #             img_out = op(img_src)
+    #             writer.write(img_out)
+    #     else:
+    #         print('视频打开失败！')
+    #     writer.release()
+    #     #现在没用
 
     def thresholdplus(src,show):
         gray = cv2.cvtColor(src, cv2.COLOR_BGR2GRAY)
@@ -120,9 +120,10 @@ class ncsyprocs(object):
             else:
                 return img
 
-img = cv2.imread('./robo3.png') 
-img_ori=cv2.imread('./robo.png') 
-img_bin=cv2.imread('./robo.png') 
+
+img = cv2.imread('C:\\Users\\25176\\OneDrive\\Codes\\SPR2024\\TestGit\\MainProject\\robo3.png') 
+img_ori=cv2.imread('C:\\Users\\25176\\OneDrive\\Codes\\SPR2024\\TestGit\\MainProject\\robo.png') 
+img_bin=cv2.imread('C:\\Users\\25176\\OneDrive\\Codes\\SPR2024\\TestGit\\MainProject\\robo.png')
 cv2.imshow("binary", img_bin)
 
 img_findmerge1=img.copy()

@@ -812,7 +812,7 @@ def main(openvino_model, cap):
     global label_map, kpt_shape
     # Load YOLOv8 model for label map, if you needn't display labels, you can remove this part
     # if(port.enemy_color==1):
-    yolo_model = YOLO("E:\\yolo_hero\\red_fina.pt")
+    yolo_model = YOLO("C:\\Users\\25176\\OneDrive\\Codes\\SPR2024\\TestGit\\yolo_hero\\red_fina.pt")
     # else:
         # yolo_model = YOLO("/home/rc-cv/yolov8-face-main/red_fina.pt")
         
@@ -897,7 +897,7 @@ if __name__ == '__main__':
     #                 help='Input your openvino model.')
         
     # else:
-    parser.add_argument('--model', default="E:\\yolo_hero\\best_openvino_model\\red_fina.xml",
+    parser.add_argument('--model', default="C:\\Users\\25176\\OneDrive\\Codes\\SPR2024\\TestGit\\yolo_hero\\best_openvino_model\\red_fina.xml",
                     help='Input your openvino model.')
 
     args = parser.parse_args()
